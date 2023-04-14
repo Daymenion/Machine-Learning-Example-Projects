@@ -1,0 +1,3 @@
+D:/PROJECTS/MY_OWN_PROJECTS/tsp/cmake-build-debug/CMakeFiles/tsp.dir
+D:/PROJECTS/MY_OWN_PROJECTS/tsp/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/PROJECTS/MY_OWN_PROJECTS/tsp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
