@@ -246,7 +246,6 @@ void loadIrsihDataset(const string &filename, vector<vector<double>> &trainInput
                 inputMeans[j] += inputs[i][j];
         }
         
-            printf("burada1");
         for(size_t i =0;i<inputMeans.size();++i)
             inputMeans[i] /= inputs.size();
 
@@ -258,13 +257,11 @@ void loadIrsihDataset(const string &filename, vector<vector<double>> &trainInput
         for(size_t i =0;i<inputStds.size();++i)
             inputStds[i] = sqrt(inputStds[i] / inputs.size());
         
-            printf("burada2");
         for(size_t i=0; i< inputs.size(); ++i) {
             for(size_t j =0; j<inputs.size(); ++j)
                 inputs[i][j] = (inputs[i][j] - inputMeans[j]) / inputStds[j];
         }
         
-            printf("burada3");
         random_device rd;
         mt19937 g(rd());
         vector<size_t> indices(inputs.size());
