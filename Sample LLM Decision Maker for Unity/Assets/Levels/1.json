@@ -1,0 +1,81 @@
+{
+  "ID": 0,
+  "gridX": 3,
+  "gridY": 2,
+  "cellMatrix": [
+    {
+      "cellArray": [
+        {
+          "passengers": [
+            {
+              "color": 2
+            }
+          ]
+        },
+        {
+          "passengers": [
+            {
+              "color": 2
+            }
+          ]
+        },
+        {
+          "passengers": [
+            {
+              "color": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cellArray": [
+        {
+          "passengers": [
+            {
+              "color": 4
+            }
+          ]
+        },
+        {
+          "passengers": [
+            {
+              "color": 4
+            }
+          ]
+        },
+        {
+          "passengers": [
+            {
+              "color": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "busConfigs": [
+    {
+      "color": 2,
+      "passengerCapacity": 3
+    },
+    {
+      "color": 4,
+      "passengerCapacity": 3
+    }
+  ],
+  "cameraPreset": {
+    "cameraPosition": {
+      "x": 0,
+      "y": 56.900001525878906,
+      "z": -38.599998474121094
+    },
+    "cameraRotation": {
+      "x": 60,
+      "y": 0,
+      "z": 0
+    },
+    "cameraFov": 20
+  },
+  "levelTime": 60
+}
