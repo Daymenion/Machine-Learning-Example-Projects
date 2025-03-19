@@ -17,7 +17,7 @@ The implementation uses `AIAgent.cs`, which handles all the AI logic that intera
 - Place `AIAgent.cs` in the `Assets/Scripts` folder
 - Create a new GameObject in your scene and attach the `AIAgent` component to it
 - GameObject Settings: (I used gpt-4o for final tests, you can use whatever you want. recomendation o3-mini)
-- <img src="GameObjectSettings.jpg" width="30%">
+- <img src="GameObjectSettings1.jpg" width="30%">
 
 ### 2. Configure the AI Agent
 
