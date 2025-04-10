@@ -49,7 +49,7 @@ The implementation uses `AIAgent.cs`, which handles all the AI logic that intera
 
 4. **Action Execution**: The agent simulates clicking on the selected passenger
 
-5. **Logging and Analysis**: If enabled, the agent logs all actions and game states to a file for later review. Logging into C:\Users\\`username`\AppData\LocalLow\Rollic\AIBusJam\AILogs
+5. **Logging and Analysis**: If enabled, the agent logs all actions and game states to a file for later review.
 
 ## Key Features
 
@@ -107,4 +107,4 @@ The AI agent can log its decision-making process to help with debugging and anal
 
 ---
 
-Created by [Mehmet Ünlü](https://www.linkedin.com/in/daymenion/) for the Rollic AI GamePlay Agent Case Study Project.
+Created by [Mehmet Ünlü](https://www.linkedin.com/in/daymenion/).
