@@ -1,0 +1,14 @@
+{
+    "multiplier_distribution": {
+        "mean": 1.0,
+        "median": 1.0,
+        "std": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "pct_no_surge": 100.0,
+        "pct_high_surge": 0.0
+    },
+    "location_variation": 0.0,
+    "location_max_diff": 0.0,
+    "gini_coefficient": 0.0
+}

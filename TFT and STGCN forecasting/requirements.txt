@@ -1,0 +1,38 @@
+# Core dependencies
+numpy
+pandas
+pyarrow
+scipy
+scikit-learn
+
+# Deep Learning
+torch
+lightning
+torch-geometric
+pytorch-forecasting
+pytorch_optimizer
+
+# Boosting libraries
+xgboost
+lightgbm
+
+# Visualization
+matplotlib
+seaborn
+plotly
+
+# Explainability
+shap
+
+# Hyperparameter Optimization
+optuna
+
+# Utilities
+joblib
+jupyter
+notebook
+mlflow  # Experiment tracking
+meteostat # Weather data
+holidays
+python-dotenv
+boruta

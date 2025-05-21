@@ -1,0 +1,291 @@
+{
+    "strategy_metrics": {
+        "mean_multiplier": 1.0,
+        "median_multiplier": 1.0,
+        "max_multiplier": 1.0,
+        "min_multiplier": 1.0,
+        "std_multiplier": 0.0,
+        "total_expected_revenue": 307119.50288290187,
+        "mean_utilization_rate": 0.38094024581141817,
+        "mean_expected_wait_time": 2.930868939715199
+    },
+    "baseline_comparison": {
+        "baseline_multiplier": 1.2,
+        "baseline_total_revenue": 336432.55915747647,
+        "baseline_mean_utilization": 0.34774927615412765,
+        "revenue_improvement": -8.71290708247231,
+        "utilization_improvement": 9.544511501033238,
+        "demand_change": 9.544511501033215,
+        "supply_change": 0.0
+    },
+    "equilibrium_metrics": {
+        "mean_abs_supply_demand_diff": 9.046454835200768,
+        "median_abs_supply_demand_diff": 9.671487483285288,
+        "mean_supply_demand_ratio": 2.9057304713034817,
+        "pct_oversupply": 100.0,
+        "pct_undersupply": 0.0,
+        "pct_equilibrium": 0.0
+    },
+    "location_metrics": {
+        "1": {
+            "mean_multiplier": 1.0,
+            "max_multiplier": 1.0,
+            "total_revenue": 30881.65481392255,
+            "mean_utilization": 0.3845929886541855,
+            "mean_wait_time": 2.951481792254419,
+            "demand_supply_balance": 2.8926437919372403
+        },
+        "2": {
+            "mean_multiplier": 1.0,
+            "max_multiplier": 1.0,
+            "total_revenue": 31021.000047979687,
+            "mean_utilization": 0.38096156791392444,
+            "mean_wait_time": 2.9311282890466117,
+            "demand_supply_balance": 2.8955977792402625
+        },
+        "3": {
+            "mean_multiplier": 1.0,
+            "max_multiplier": 1.0,
+            "total_revenue": 30828.3006175388,
+            "mean_utilization": 0.38054405114599366,
+            "mean_wait_time": 2.931254704781418,
+            "demand_supply_balance": 2.9219558633326943
+        },
+        "4": {
+            "mean_multiplier": 1.0,
+            "max_multiplier": 1.0,
+            "total_revenue": 30520.4885025478,
+            "mean_utilization": 0.37992662818431755,
+            "mean_wait_time": 2.924715843772983,
+            "demand_supply_balance": 2.9105859974961263
+        },
+        "5": {
+            "mean_multiplier": 1.0,
+            "max_multiplier": 1.0,
+            "total_revenue": 30705.965992186968,
+            "mean_utilization": 0.37910912961764326,
+            "mean_wait_time": 2.923497653376411,
+            "demand_supply_balance": 2.923275154781121
+        },
+        "6": {
+            "mean_multiplier": 1.0,
+            "max_multiplier": 1.0,
+            "total_revenue": 30753.317115925383,
+            "mean_utilization": 0.3816905571153486,
+            "mean_wait_time": 2.9329172668596075,
+            "demand_supply_balance": 2.8959113739521656
+        },
+        "7": {
+            "mean_multiplier": 1.0,
+            "max_multiplier": 1.0,
+            "total_revenue": 30853.64251948503,
+            "mean_utilization": 0.3829093314556064,
+            "mean_wait_time": 2.9402956517953402,
+            "demand_supply_balance": 2.885537466220562
+        },
+        "8": {
+            "mean_multiplier": 1.0,
+            "max_multiplier": 1.0,
+            "total_revenue": 30846.05253150266,
+            "mean_utilization": 0.38118219141351245,
+            "mean_wait_time": 2.9335575145343618,
+            "demand_supply_balance": 2.91861895552559
+        },
+        "9": {
+            "mean_multiplier": 1.0,
+            "max_multiplier": 1.0,
+            "total_revenue": 30056.80411840405,
+            "mean_utilization": 0.3799926410257096,
+            "mean_wait_time": 2.921645251784044,
+            "demand_supply_balance": 2.8976650192597617
+        },
+        "10": {
+            "mean_multiplier": 1.0,
+            "max_multiplier": 1.0,
+            "total_revenue": 30652.276623408907,
+            "mean_utilization": 0.37854034782101725,
+            "mean_wait_time": 2.9183493059061725,
+            "demand_supply_balance": 2.915156664664841
+        }
+    },
+    "time_metrics": {
+        "hourly": {
+            "0": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 4493.970967626444,
+                "mean_utilization": 0.29410804761953163,
+                "demand_supply_balance": 3.4158967101634685
+            },
+            "1": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 4443.1909379757,
+                "mean_utilization": 0.29700474184329545,
+                "demand_supply_balance": 3.398724525203107
+            },
+            "2": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 4354.287203412992,
+                "mean_utilization": 0.29262682818635705,
+                "demand_supply_balance": 3.4367267218462616
+            },
+            "3": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 4625.098153782512,
+                "mean_utilization": 0.29800890166124433,
+                "demand_supply_balance": 3.370860155753084
+            },
+            "4": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 4307.892403552469,
+                "mean_utilization": 0.3025205339573362,
+                "demand_supply_balance": 3.3245123804689314
+            },
+            "5": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 4646.539786641475,
+                "mean_utilization": 0.3025091006928043,
+                "demand_supply_balance": 3.321800376862532
+            },
+            "6": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 4737.80291749105,
+                "mean_utilization": 0.30685252056289186,
+                "demand_supply_balance": 3.2798312297256054
+            },
+            "7": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 17847.450370452127,
+                "mean_utilization": 0.5408318294076403,
+                "demand_supply_balance": 1.8524468438300186
+            },
+            "8": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 17984.334084847134,
+                "mean_utilization": 0.5028021081720194,
+                "demand_supply_balance": 1.9927256999379153
+            },
+            "9": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 18573.92234100734,
+                "mean_utilization": 0.4740970174813682,
+                "demand_supply_balance": 2.1132664459679966
+            },
+            "10": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 18663.66105306708,
+                "mean_utilization": 0.452347878696417,
+                "demand_supply_balance": 2.216555618172618
+            },
+            "11": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 18695.75809374061,
+                "mean_utilization": 0.4343187803054182,
+                "demand_supply_balance": 2.308640410246973
+            },
+            "12": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 18625.836186392815,
+                "mean_utilization": 0.4189413571018161,
+                "demand_supply_balance": 2.393732927081406
+            },
+            "13": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 18784.930173760564,
+                "mean_utilization": 0.41342668278365713,
+                "demand_supply_balance": 2.426314947847554
+            },
+            "14": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 18805.128031198947,
+                "mean_utilization": 0.4093677709835968,
+                "demand_supply_balance": 2.4508031670144548
+            },
+            "15": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 18803.077557994737,
+                "mean_utilization": 0.4111105716160132,
+                "demand_supply_balance": 2.4420218581896154
+            },
+            "16": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 19155.783210168072,
+                "mean_utilization": 0.42158857315130743,
+                "demand_supply_balance": 2.380566770188884
+            },
+            "17": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 19121.99420908594,
+                "mean_utilization": 0.430101184412864,
+                "demand_supply_balance": 2.332728243638037
+            },
+            "18": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 19144.02754494849,
+                "mean_utilization": 0.44473247095762924,
+                "demand_supply_balance": 2.2561333290242622
+            },
+            "19": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 18375.412025923215,
+                "mean_utilization": 0.44536163759430447,
+                "demand_supply_balance": 2.2573109134371268
+            },
+            "20": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 18403.91634542736,
+                "mean_utilization": 0.46975763595609543,
+                "demand_supply_balance": 2.1453749288465715
+            },
+            "21": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 4803.065012913185,
+                "mean_utilization": 0.1543562882216422,
+                "demand_supply_balance": 6.550381311978542
+            },
+            "22": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 4846.5986055670355,
+                "mean_utilization": 0.16074953915645226,
+                "demand_supply_balance": 6.265911028098742
+            },
+            "23": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 4875.825665924534,
+                "mean_utilization": 0.3002355705618555,
+                "demand_supply_balance": 3.351842546947227
+            }
+        },
+        "period": {
+            "evening": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 32929.405629832116,
+                "mean_utilization": 0.27928484828430444,
+                "demand_supply_balance": 4.473529422508072
+            },
+            "evening_rush": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 75797.21699012571,
+                "mean_utilization": 0.43544596652902634,
+                "demand_supply_balance": 2.306684814072077
+            },
+            "midday": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 93714.73004308768,
+                "mean_utilization": 0.4174385351350734,
+                "demand_supply_balance": 2.404269834229078
+            },
+            "morning_rush": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 73069.3678493737,
+                "mean_utilization": 0.49190498196337956,
+                "demand_supply_balance": 2.0462626926701004
+            },
+            "night": {
+                "mean_multiplier": 1.0,
+                "total_revenue": 31608.782370482637,
+                "mean_utilization": 0.29909900047769344,
+                "demand_supply_balance": 3.3639152927720093
+            }
+        }
+    }
+}

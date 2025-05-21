@@ -1,0 +1,39 @@
+{
+  "model_type": "LightGBMModel",
+  "creation_time": "2025-05-16T14:36:15.130389",
+  "training_status": "trained",
+  "feature_count": 282,
+  "params": {
+    "random_state": 42,
+    "bagging_seed": 42,
+    "feature_fraction_seed": 42,
+    "data_random_seed": 42,
+    "objective": "regression",
+    "metric": "mae",
+    "boosting_type": "gbdt",
+    "num_leaves": 4096,
+    "max_bin": 255,
+    "feature_fraction": 0.9,
+    "learning_rate": 0.01,
+    "n_estimators": 5000,
+    "colsample_bytree": 0.9,
+    "subsample": 0.9,
+    "reg_alpha": 0.1,
+    "reg_lambda": 0.1,
+    "max_depth": 12,
+    "bagging_freq": 5,
+    "bagging_fraction": 0.8,
+    "verbose": -1,
+    "early_stopping_rounds": 50,
+    "min_data_in_leaf": 20
+  },
+  "is_using_enhanced_features": true,
+  "training_time": 217.40121912956238,
+  "last_saved": "2025-05-16T14:40:07.341400",
+  "metrics": {
+    "MAE": 1.830578799787883,
+    "RMSE": 2.4251627362695762,
+    "R2": 0.5633892097281472,
+    "MAPE": 47.03513892340424
+  }
+}

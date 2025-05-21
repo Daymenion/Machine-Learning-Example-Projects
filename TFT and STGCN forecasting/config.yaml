@@ -1,0 +1,355 @@
+# Configuration File for Ride Demand Forecasting with Surge Pricing Optimization
+
+# Data Paths
+data:
+  raw_path: "data/raw/"
+  processed_path: "data/processed/"
+  results_path: "results/"
+  model_path: "results/models/"
+  predictions_path: "results/predictions/"
+  figures_path: "results/figures/"
+  pricing_path: "results/pricing/"
+
+# Feature Categories
+feature_categories:
+  target: ["trip_count"]
+  datetime: ["hour_start"]
+  
+  temporal: ["hour","day","day_of_week","is_weekend","month","year","week_of_year","day_of_month","quarter","hour_sin","hour_cos",
+            "day_of_week_sin","day_of_week_cos","day_of_month_sin","day_of_month_cos","month_sin","month_cos","is_rush_hour",
+            "is_night","is_holiday","holiday_proximity","is_morning","is_afternoon","is_evening", "lag1h","lag2h","lag3h","lag6h",
+            "lag12h","lag24h","lag48h","lag168h","lag_diff_1_2h","lag_diff_2_3h","lag_diff_3_6h","lag_diff_6_12h","lag_diff_12_24h",
+            "lag_diff_24_48h","lag_diff_48_168h","rolling_3h_mean","rolling_3h_std","rolling_3h_max","rolling_3h_min",
+            "rolling_6h_mean","rolling_6h_std","rolling_6h_max","rolling_6h_min","rolling_12h_mean","rolling_12h_std",
+            "rolling_12h_max","rolling_12h_min","rolling_24h_mean","rolling_24h_std","rolling_24h_max","rolling_24h_min",
+            "rolling_72h_mean","rolling_72h_std","rolling_72h_max","rolling_72h_min","rolling_168h_mean","rolling_168h_std",
+            "rolling_168h_max","rolling_168h_min", "ewm_mean_alpha0.3_3h","ewm_mean_alpha0.3","ewm_mean_alpha0.5_3h",
+            "ewm_mean_alpha0.5","ewm_mean_alpha0.7_3h","ewm_mean_alpha0.7","ewm_mean_alpha1.0_3h","ewm_mean_alpha1.0",
+            "ewm_mean_alpha0.3_6h","ewm_mean_alpha0.3_6h","ewm_mean_alpha0.5_6h","ewm_mean_alpha0.5_6h","ewm_mean_alpha0.7_6h",
+            "ewm_mean_alpha0.7_6h","ewm_mean_alpha1.0_6h","ewm_mean_alpha0.3_12h","ewm_mean_alpha0.3_12h",
+            "ewm_mean_alpha0.5_12h","ewm_mean_alpha0.7_12h","ewm_mean_alpha1.0_12h","ewm_mean_alpha0.3_24h",
+            "ewm_mean_alpha0.5_24h","ewm_mean_alpha0.7_24h","ewm_mean_alpha1.0_24h","ewm_mean_alpha0.3_72h",
+            "ewm_mean_alpha0.5_72h","ewm_mean_alpha0.7_72h","ewm_mean_alpha1.0_72h","ewm_mean_alpha0.3_168h",
+            "ewm_mean_alpha1.0_72h","ewm_mean_alpha0.3_168h","ewm_mean_alpha0.5_168h","ewm_mean_alpha0.7_168h",
+            "ewm_mean_alpha1.0_168h", "fourier_24h_1_sin","fourier_24h_1_cos","fourier_24h_2_sin",
+            "fourier_24h_2_cos","fourier_24h_3_sin","fourier_24h_3_cos","fourier_24h_4_sin", 
+            "fourier_24h_4_cos","fourier_168h_1_sin","fourier_168h_1_cos","fourier_168h_2_sin",
+            "fourier_168h_2_cos","fourier_168h_3_sin","fourier_168h_3_cos","fourier_168h_4_sin",
+            "fourier_168h_4_cos","fourier_720h_1_sin","fourier_720h_1_cos","fourier_720h_2_sin",
+            "fourier_720h_2_cos","fourier_720h_3_sin","fourier_720h_3_cos","fourier_720h_4_sin",
+            "fourier_720h_4_cos"]
+  
+  spatial: ["start_location_id","location_in_degree_centrality","location_in_degree","location_out_degree_centrality",
+            "location_out_degree","location_in_strength_centrality","location_in_strength","location_out_strength_centrality",
+            "location_out_strength","location_betweenness_centrality","location_betweenness","location_pagerank_centrality",
+            "location_pagerank","location_cluster","location_cluster_0","location_cluster_1","dist_to_pop1",
+            "time_to_pop1","dist_from_pop1","time_from_pop1","dist_to_pop3","time_to_pop3","dist_from_pop3",
+            "time_from_pop3","dist_to_pop7","time_to_pop7","dist_from_pop7","time_from_pop7","dest_cluster",
+            "dest_cluster_0","dest_cluster_1","trip_dist_bin_short","trip_dist_bin_medium","trip_dist_bin_long"]
+  
+  context: ["weather_temp","weather_dwpt","weather_rhum","weather_prcp","weather_snow","weather_wdir",
+            "weather_wspd","weather_pres","weather_coco","prcp_lag1","prcp_lag3","prcp_lag6",
+            "temp_lag1","temp_lag3","temp_lag6","wspd_lag3","wspd_lag6","rhum_lag1","rhum_lag3",
+            "rhum_lag6","coco_lag1","coco_lag3","coco_lag6","heat_index","wind_chill",
+            "temp_anomaly24h","is_raining","is_heavy_rain","is_snowing","is_severe_weather",
+            "is_heatwave","is_freezing","is_high_wind"]
+  
+  interaction: ["cluster1_x_is_morning","cluster1_x_is_afternoon","cluster1_x_is_evening",
+            "cluster1_x_is_night","cluster1_x_is_weekend","cluster0_x_is_morning",
+            "cluster0_x_is_afternoon","cluster0_x_is_evening","cluster0_x_is_night",
+            "cluster0_x_is_weekend","mixed_x_morning","mixed_x_afternoon",
+            "mixed_x_evening","mixed_x_night","mixed_x_weekend","rain_x_location_cluster_0",
+            "rain_x_location_cluster_1","temp_x_location_cluster_0","temp_x_location_cluster_1",
+            "wind_x_location_cluster_0","wind_x_location_cluster_1","rain_x_dest_cluster_0",
+            "rain_x_dest_cluster_1","temp_x_dest_cluster_0","temp_x_dest_cluster_1",
+            "wind_x_dest_cluster_0","wind_x_dest_cluster_1","rain_x_trip_dist_bin_short",
+            "rain_x_trip_dist_bin_medium","rain_x_trip_dist_bin_long","temp_x_trip_dist_bin_short",
+            "temp_x_trip_dist_bin_medium","temp_x_trip_dist_bin_long","wind_x_trip_dist_bin_short",
+            "wind_x_trip_dist_bin_medium","wind_x_trip_dist_bin_long"]
+  
+  trip_related: ["lag_driver_trip_frequency_1h_mean","lag_driver_next_trip_days_1h_mean",
+            "lag_user_using_frequency_1h_mean","lag_user_next_trip_days_1h_mean",
+            "lag_regain_potential_1h_mean","lag_price_1h_mean","lag_distance_km_1h_mean",
+            "lag_user_frequency_quartile_1h_mean","lag_driver_work_time_quartile_1h_mean",
+            "lag_price_per_km_1h_mean","lag_price_per_min_1h_mean","lag_avg_speed_kmh_1h_mean",
+            "lag_trip_distance_quartile_1h_mean","lag_trip_duration_quartile_1h_mean",
+            "lag_driver_next_trip_location_1h_mode","lag_end_location_id_1h_mode",
+            "lag_driver_trip_frequency_3h_mean","lag_driver_next_trip_days_3h_mean",
+            "lag_user_using_frequency_3h_mean","lag_user_next_trip_days_3h_mean",
+            "lag_regain_potential_3h_mean","lag_price_3h_mean","lag_distance_km_3h_mean",
+            "lag_user_frequency_quartile_3h_mean","lag_driver_work_time_quartile_3h_mean",
+            "lag_price_per_km_3h_mean","lag_price_per_min_3h_mean","lag_avg_speed_kmh_3h_mean",
+            "lag_trip_distance_quartile_3h_mean","lag_trip_duration_quartile_3h_mean",
+            "lag_driver_next_trip_location_3h_mode","lag_end_location_id_3h_mode",
+            "lag_driver_trip_frequency_12h_mean","lag_driver_next_trip_days_12h_mean",
+            "lag_driver_next_trip_days_12h_mean","lag_user_using_frequency_12h_mean",
+            "lag_user_next_trip_days_12h_mean","lag_regain_potential_12h_mean",
+            "lag_regain_potential_12h_mean","lag_price_12h_mean","lag_distance_km_12h_mean",
+            "lag_user_frequency_quartile_12h_mean","lag_driver_work_time_quartile_12h_mean",
+            "lag_price_per_km_12h_mean","lag_price_per_min_12h_mean","lag_avg_speed_kmh_12h_mean",
+            "lag_trip_distance_quartile_12h_mean","lag_trip_duration_quartile_12h_mean",
+            "lag_driver_next_trip_location_12h_mode","lag_end_location_id_12h_mode",
+            "lag_driver_trip_frequency_24h_mean","lag_driver_next_trip_days_24h_mean",
+            "lag_user_using_frequency_24h_mean","lag_user_next_trip_days_24h_mean",
+            "lag_regain_potential_24h_mean","lag_price_24h_mean","lag_distance_km_24h_mean",
+            "lag_user_frequency_quartile_24h_mean","lag_driver_work_time_quartile_24h_mean",
+            "lag_price_per_km_24h_mean","lag_price_per_min_24h_mean","lag_avg_speed_kmh_24h_mean",
+            "lag_trip_distance_quartile_24h_mean","lag_trip_duration_quartile_24h_mean",
+            "lag_driver_next_trip_location_24h_mode","lag_end_location_id_24h_mode"]
+
+# Feature Engineering Settings
+feature_engineering:
+  # Temporal features
+  temporal:
+    cyclic_encoding: True # Hour of day, day of week, etc. as sin/cos
+    rolling_windows: [1, 3, 6, 12, 24, 48, 96, 168] # Hours: 1h, 3h, 6h, 12h, 1d,..., 1w
+    lag_features: [1, 2, 3, 6, 12, 24, 48, 96, 168, 336] # Hours back
+    fourier_terms: 6 # Number of Fourier terms for seasonal decomposition
+    holiday_flags: True # Include holiday indicators
+    time_encoding: "sincos" # Options: "sincos", "onehot", "embedding"
+    
+  # Spatial features
+  spatial:
+    neighbor_lags: [1, 2, 3] # Consider N-hop neighbors
+    distance_decay: "exponential" # Options: "linear", "exponential", "inverse"
+    decay_alpha: 0.5 # ← base value
+    tune_decay_alpha: True # set False to keep fixed
+    spatial_embedding_dim: 16 # Dimension for location embeddings
+    use_graph_convolution: True # Use graph-based features
+    adjacency_type: "distance"  # Options: "distance", "flow", "combined"
+    include_zone_clusters: True # Cluster zones by demand patterns
+    num_zone_clusters: 8 # Number of zone clusters
+    
+  # Advanced features
+  advanced:
+    price_elasticity_estimation: True # Estimate price sensitivity
+    driver_supply_features: True # Include driver availability
+    passenger_behavior_segments: True # Segment passengers
+    contextual_embeddings: True # Embedding-based features
+    autoencoder_dimension: 32 # For embedding generation
+    trip_velocity_features: True # Speed/flow features
+    use_weather: True # If weather data is available
+    advanced_weather_features: True # Advanced weather features
+    trip_interaction_graph: True # Model trip interactions between zones
+    
+  # Feature selection
+  feature_selection:
+    method: "shap_then_boruta" # Options: "permutation", "shap", "boruta", "rfe"
+    top_n_features: 100 # Number of features to keep
+
+# Data Processing
+processing:
+  target_variable: "trip_count" # Target to predict
+  aggregation_interval: "1H" # Pandas resample frequency
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+  validation_method: "time_series_split" # Options: "time_series_split", "expanding_window", "purged_kfold"
+  gap: 24 # Gap between train and validation
+  n_splits: 5 # For cross validation
+  min_trips_per_zone: 20 # Filter out zones with too few trips
+  outlier_treatment: "winsorize" # Options: "clip", "winsorize", "remove", "none"
+  winsorize_limits: [0.01, 0.99] # Percentiles for winsorization
+
+# Models Configuration
+models:
+  # LightGBM Configuration
+  lightgbm:
+    enabled: True
+    params:
+      random_state: 42
+      bagging_seed: 42
+      feature_fraction_seed: 42
+      data_random_seed: 42
+      objective: "regression"
+      metric: "mae"
+      boosting_type: "gbdt"
+      num_leaves: 12000
+      max_bin: 512
+      feature_fraction: 0.9
+      learning_rate: 0.0001
+      n_estimators: 10000
+      colsample_bytree: 0.9
+      subsample: 0.9
+      reg_alpha: 0.1
+      reg_lambda: 0.1
+      max_depth: 16 # keep unlimited in baseline
+      bagging_freq: 5 # enables row-sampling
+    hyperopt:
+      enabled: True
+      n_trials: 100
+      timeout: 72000 # seconds
+      cv: 5
+      early_stopping_rounds: 100
+      params_space:
+        max_depth: [4,6,8,12]
+        num_leaves: 65536
+        learning_rate: "loguniform(1e-3, 0.1)"
+        n_estimators: [100, 300, 500, 1000]
+        subsample: [0.6, 0.8, 1.0]
+        colsample_bytree: [0.6, 0.8, 1.0]
+        reg_alpha: [0, 0.1, 0.5, 1.0]
+        reg_lambda: [0, 0.1, 0.5, 1.0]
+
+  # Temporal Fusion Transformer
+  tft:
+    enabled: True
+    params:
+      random_state: 42
+      hidden_size: 8 #128
+      lstm_layers: 2
+      dropout: 0.1
+      attention_heads: 2
+      learning_rate: 0.001
+      batch_size: 128
+      max_epochs: 2 #50
+      early_stopping_patience: 5
+      gradient_clip_val: 0.1
+      hidden_continuous_size: 4
+      variable_selection_method: "gated"  # "learned" or "gated" or "embed"
+      learning_rate_decay: 0.5
+      lr_decay_patience: 3
+      optimizer: "ranger" # often converges faster on TFT
+    static_variables: ["zone_cluster", "is_residential", "is_business", "zone_area"]
+    time_varying_known_categoricals: ["hour", "day_of_week", "month", "is_holiday"]
+    time_varying_known_reals: ["driver_count", "weather_temp", "weather_prcp", "special_events"]
+    time_varying_unknown_reals: ["trip_count", "trip_distance_mean", "surge_multiplier_mean"]
+    hyperopt:
+      enabled: True
+      n_trials: 30
+      timeout: 14400 # seconds
+      params_space:
+        hidden_size: [16, 32, 64, 128]
+        lstm_layers: [1, 2, 3]
+        dropout: [0.1, 0.2, 0.3]
+        attention_heads: [1, 2, 4, 8]
+        learning_rate: [0.0001, 0.001, 0.01]
+        hidden_continuous_size: [16, 32, 64, 128]
+
+  # Spatio-Temporal Graph Neural Network
+  stgcn:
+    enabled: True
+    params:
+      random_state: 42
+      hidden_channels: 64
+      spatial_kernel_size: 3
+      temporal_kernel_size: 3
+      num_nodes: "${autofill}"
+      num_features: "${autofill}"
+      dilation: 2
+      residual: True
+      num_timesteps_input: 12  # Look back 12 hours
+      num_timesteps_output: 1  # Predict next hour
+      batch_size: 32
+      learning_rate: 0.001
+      epochs: 50
+      patience: 5
+      optimizer: "adam"
+    hyperopt:
+      enabled: True
+      n_trials: 30
+      timeout: 14400 # seconds
+      params_space:
+        dilation: [1,2]
+        hidden_channels: [32, 64, 128]
+        spatial_kernel_size: [2, 3, 4]
+        temporal_kernel_size: [2, 3, 4]
+        learning_rate: [0.0001, 0.001, 0.01]
+        num_timesteps_input: [6, 12, 24]
+
+  # Meta-Learner Ensemble
+  ensemble:
+    enabled: True
+    params:
+      random_state: 42
+      stacking_cv_strategy: "purged_kfold"
+      models_to_ensemble: ["lightgbm", "tft", "stgcn"]
+      meta_learner: "ridge" # Options: "ridge", "lasso", "elasticnet", "lightgbm"
+      use_oof_predictions: True # Use out-of-fold predictions for training
+      stacking_cv: 5 # Number of CV folds for stacking
+
+# Uncertainty Quantification
+uncertainty:
+  enabled: True
+  method: "cqr" # Options: "conformal", "quantile", "bootstrap", "mve"
+  calibration_ratio: 0.2
+  prediction_intervals: [0.5, 0.9, 0.95] # Confidence levels
+  ensemble_uncertainty: True # Combine uncertainties from multiple models
+  recalibration: True # Recalibrate prediction intervals
+
+# Evaluation Metrics
+evaluation:
+  metrics: ["mae", "mse", "rmse", "mape", "r2"]
+  additional_metrics: ["smape", "wmape", "coverage", "sharpness"]
+  aggregation_levels:
+    - ["start_location_id"]  # By location
+    - ["hour"]  # By hour
+    - ["day_of_week"]  # By day of week
+    - ["is_weekend"]  # Weekend vs weekday
+    - ["start_location_id", "hour"]  # By location and hour
+  backtesting:
+    enabled: True
+    expanding_window: True
+    rolling_origin: True
+    horizon: "7D"
+    window_size: "30D"  # 30 days initial window
+    step_size: "7D"  # Move forward 7 days at a time
+    refit_frequency: "7D"  # Refit models every 7 days
+
+# Surge Pricing Optimization
+surge_pricing:
+  enabled: True
+  optimization_objective: "revenue_maximization" # Options: "revenue_maximization", "balance", "driver_utilization"
+  min_surge_multiplier: 1.0
+  max_surge_multiplier: 3.0
+  surge_granularity: 0.1 # Increments for surge multiplier
+  price_elasticity_method: "causal" # Options: "historical", "experimental", "causal"
+  driver_response_model: True # Model how drivers respond to surge
+  passenger_response_model: True # Model how passengers respond to surge
+  multi_objective_weights:
+    revenue: 0.7
+    driver_utilization: 0.2
+    passenger_satisfaction: 0.1
+  simulation:
+    num_iterations: 1000
+    scenarios: ["normal", "high_demand", "low_supply", "special_event"]
+    monte_carlo_samples: 100 # For uncertainty propagation
+    confidence_level: 0.9 # For robust optimization
+    regret_threshold: 0.01 # regret_threshold < ε 
+
+# Visualizations and Reporting
+visualization:
+  interactive_dashboard: True
+  heatmaps:
+    enabled: True
+    granularity: "hour" # Options: "hour", "day", "week"
+  time_series_plots:
+    enabled: True
+    comparison_methods: ["actual", "baseline", "ensemble"]
+    show_prediction_intervals: True
+  feature_importance:
+    enabled: True
+    methods: ["shap", "permutation"]
+    top_n_features: 20
+  map_visualizations:
+    enabled: True
+    colormap: "viridis"
+    animate_over_time: True
+  pricing_optimization:
+    enabled: True
+    show_revenue_curves: True
+    show_elasticity_curves: True
+
+# Experiment Tracking
+experiment_tracking:
+  enabled: True
+  platform: "mlflow" # Options: "mlflow", "wandb", "tensorboard"
+  experiment_name: "ride_demand_forecasting"
+  tags:
+    project: "surge_pricing_optimization"
+    department: "data_science"
+    version: "1.0.0"
+  track_metrics: True
+  track_parameters: True
+  track_artifacts: True
+  track_code: True
